@@ -23,9 +23,31 @@
   const year = document.getElementById('year');
   if (year) year.textContent = String(new Date().getFullYear());
 
+  // Shop filters
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const products = document.querySelectorAll('.product');
+  if (filterBtns.length && products.length) {
+    filterBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const filter = btn.getAttribute('data-filter');
+        filterBtns.forEach(function (b) {
+          b.classList.remove('is-active');
+          b.setAttribute('aria-pressed', 'false');
+        });
+        btn.classList.add('is-active');
+        btn.setAttribute('aria-pressed', 'true');
+        products.forEach(function (p) {
+          const cats = (p.getAttribute('data-category') || '').split(' ');
+          const show = filter === 'all' || cats.indexOf(filter) !== -1;
+          p.classList.toggle('is-hidden', !show);
+        });
+      });
+    });
+  }
+
   // Reveal on scroll for cards + pillars
   if ('IntersectionObserver' in window) {
-    const targets = document.querySelectorAll('.card, .pillar, .bio-block p');
+    const targets = document.querySelectorAll('.card, .pillar, .bio-block p, .product, .steps li');
     targets.forEach(function (el) {
       el.style.opacity = '0';
       el.style.transform = 'translateY(16px)';

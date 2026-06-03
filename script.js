@@ -118,6 +118,76 @@
     }
   });
 
+  // Full-page smoke animation
+  (function () {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var canvas = document.createElement('canvas');
+    canvas.className = 'smoke-bg';
+    canvas.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(canvas);
+
+    var ctx = canvas.getContext('2d');
+    var W = 0, H = 0;
+
+    function resize() {
+      W = canvas.width  = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize, { passive: true });
+
+    var MAX = 55;
+    var list = [];
+
+    function rand(a, b) { return a + Math.random() * (b - a); }
+
+    function spawn(stagger) {
+      var red = Math.random() < 0.12;
+      return {
+        x:    rand(0, W),
+        y:    rand(H * 0.6, H * 1.2),
+        vx:   rand(-0.22, 0.22),
+        vy:   rand(-0.55, -0.14),
+        r:    rand(80, 260),
+        peak: rand(0.05, 0.15),
+        life: stagger ? (Math.random() * 420) | 0 : 0,
+        span: (rand(200, 460)) | 0,
+        r1:   red ? 255 : (rand(180, 235) | 0),
+        g1:   red ?  59 : (rand(180, 235) | 0),
+        b1:   red ?  47 : (rand(180, 235) | 0)
+      };
+    }
+
+    for (var i = 0; i < MAX; i++) list.push(spawn(true));
+
+    function tick() {
+      ctx.clearRect(0, 0, W, H);
+      for (var i = 0; i < list.length; i++) {
+        var p = list[i];
+        p.life++;
+        p.x += p.vx;
+        p.y += p.vy;
+        p.r  += 0.1;
+        var t = p.life / p.span;
+        var a = p.peak * Math.sin(t * Math.PI);
+        if (a > 0.002) {
+          var g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r);
+          g.addColorStop(0,    'rgba(' + p.r1 + ',' + p.g1 + ',' + p.b1 + ',' + a.toFixed(3) + ')');
+          g.addColorStop(0.5,  'rgba(' + p.r1 + ',' + p.g1 + ',' + p.b1 + ',' + (a * 0.28).toFixed(3) + ')');
+          g.addColorStop(1,    'rgba(' + p.r1 + ',' + p.g1 + ',' + p.b1 + ',0)');
+          ctx.fillStyle = g;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        if (p.life >= p.span) list[i] = spawn(false);
+      }
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }());
+
   // Scroll reveal — CSS class-based so hover transforms are not overridden
   if ('IntersectionObserver' in window) {
     var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

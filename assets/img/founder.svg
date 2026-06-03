@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900">
+  <rect width="900" height="900" fill="#0b0b0b"/>
+
+  <!-- Faint giant A monogram background -->
+  <text x="450" y="700" text-anchor="middle"
+    font-family="Impact, 'Arial Black', sans-serif"
+    font-size="800" fill="#0f0f0f">A</text>
+
+  <!-- Top rule -->
+  <rect x="60" y="100" width="780" height="1" fill="#1e1e1e"/>
+
+  <!-- Eyebrow -->
+  <text x="60" y="90"
+    font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+    font-size="11" font-weight="700" fill="#ff3b2f"
+    letter-spacing="8">FOUNDER</text>
+
+  <!-- Portrait circle -->
+  <circle cx="450" cy="420" r="200" fill="none" stroke="#1e1e1e" stroke-width="1"/>
+  <circle cx="450" cy="420" r="196" fill="#111"/>
+
+  <!-- Initials in circle -->
+  <text x="450" y="448" text-anchor="middle"
+    font-family="Impact, 'Arial Black', sans-serif"
+    font-size="96" fill="#2a2a2a">EA</text>
+
+  <!-- Red dot accent -->
+  <circle cx="450" cy="252" r="5" fill="#ff3b2f"/>
+
+  <!-- Bottom divider -->
+  <rect x="60" y="700" width="780" height="1" fill="#1e1e1e"/>
+
+  <!-- Name -->
+  <text x="450" y="762" text-anchor="middle"
+    font-family="Impact, 'Arial Black', sans-serif"
+    font-size="52" fill="#f0f0f0" letter-spacing="1">EDRYAN ALBRIGHT</text>
+
+  <!-- Title -->
+  <text x="450" y="806" text-anchor="middle"
+    font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+    font-size="14" font-weight="500" fill="#555"
+    letter-spacing="8">FOUNDER · NATURAL ATHLETE</text>
+
+  <!-- Location -->
+  <text x="450" y="846" text-anchor="middle"
+    font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+    font-size="12" fill="#333"
+    letter-spacing="6">CEBU · PHILIPPINES</text>
+</svg>

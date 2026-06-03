@@ -45,30 +45,60 @@
     });
   }
 
-  // Email signup — show success message on submit
+  // Email signup
+  // To activate real collection: uncomment the fetch block below and set SUPABASE_URL + SUPABASE_ANON_KEY
+  var SUPABASE_URL  = '';
+  var SUPABASE_ANON = '';
+
+  function showSignupMsg(form, type, text) {
+    var msg = form.parentNode.querySelector('.signup-msg');
+    if (!msg) {
+      msg = document.createElement('p');
+      form.insertAdjacentElement('afterend', msg);
+    }
+    msg.className = 'signup-msg ' + type;
+    msg.textContent = text;
+  }
+
   document.querySelectorAll('form.signup').forEach(function (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var input = form.querySelector('input[type="email"]');
-      var btn = form.querySelector('button[type="submit"]');
+      var btn   = form.querySelector('button[type="submit"]');
       var email = (input.value || '').trim();
       if (!email) return;
+
       var orig = btn.textContent;
       btn.textContent = '...';
       btn.disabled = true;
-      setTimeout(function () {
+
+      function done(ok) {
         input.value = '';
         btn.textContent = orig;
         btn.disabled = false;
-        var msg = form.parentNode.querySelector('.signup-msg');
-        if (!msg) {
-          msg = document.createElement('p');
-          msg.className = 'signup-msg success';
-          form.insertAdjacentElement('afterend', msg);
+        if (ok) {
+          showSignupMsg(form, 'success', "You're on the list.");
+        } else {
+          showSignupMsg(form, 'error', 'Something went wrong. Try again.');
         }
-        msg.textContent = "You're on the list.";
-        msg.className = 'signup-msg success';
-      }, 700);
+      }
+
+      if (SUPABASE_URL && SUPABASE_ANON) {
+        fetch(SUPABASE_URL + '/rest/v1/subscribers', {
+          method: 'POST',
+          headers: {
+            'apikey': SUPABASE_ANON,
+            'Authorization': 'Bearer ' + SUPABASE_ANON,
+            'Content-Type': 'application/json',
+            'Prefer': 'resolution=ignore-duplicates'
+          },
+          body: JSON.stringify({ email: email, source: window.location.pathname })
+        })
+          .then(function (r) { done(r.ok); })
+          .catch(function () { done(false); });
+      } else {
+        setTimeout(function () { done(true); }, 700);
+      }
     });
   });
 

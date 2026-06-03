@@ -1,23 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
-  <!-- Black background -->
   <rect width="400" height="400" fill="#000"/>
-
-  <!-- White circle fill -->
   <circle cx="200" cy="200" r="185" fill="#fff"/>
 
-  <!-- A — left leg: apex (200,18) → foot (15,386) -->
-  <line x1="200" y1="18" x2="15" y2="386" stroke="#000" stroke-width="52" stroke-linecap="butt"/>
-
-  <!-- A — right leg: apex (200,18) → foot (385,386) -->
+  <!-- A left leg -->
+  <line x1="200" y1="18" x2="15"  y2="386" stroke="#000" stroke-width="52" stroke-linecap="butt"/>
+  <!-- A right leg -->
   <line x1="200" y1="18" x2="385" y2="386" stroke="#000" stroke-width="52" stroke-linecap="butt"/>
+  <!-- A crossbar -->
+  <line x1="88"  y1="186" x2="312" y2="186" stroke="#000" stroke-width="46" stroke-linecap="butt"/>
 
-  <!-- A — crossbar at ~46% down the legs -->
-  <line x1="88" y1="186" x2="312" y2="186" stroke="#000" stroke-width="46" stroke-linecap="butt"/>
+  <!-- Bolt element: two overlapping strokes that share a junction at the top
+       and diverge downward, creating white space between them -->
+  <!-- Top horizontal bar of the bolt -->
+  <line x1="34"  y1="224" x2="150" y2="208" stroke="#000" stroke-width="46" stroke-linecap="butt"/>
+  <!-- Diagonal arm (roughly parallel to left leg of A) -->
+  <line x1="132" y1="198" x2="56"  y2="316" stroke="#000" stroke-width="54" stroke-linecap="butt"/>
 
-  <!-- Large arrow/bolt in lower-left: wide top, diagonal right side,
-       two-pronged bottom with notch creating the downward chevron shape -->
-  <polygon points="34,208 162,208 216,386 132,386 78,292 34,386" fill="#000"/>
-
-  <!-- Circle ring drawn last to cleanly cap the legs -->
+  <!-- Circle ring drawn on top to clip everything cleanly -->
   <circle cx="200" cy="200" r="185" fill="none" stroke="#000" stroke-width="32"/>
 </svg>

@@ -14,7 +14,8 @@
   --max:     1200px;
   --nav-h:   60px;
   --ease:    cubic-bezier(0.16, 1, 0.3, 1);
-  --font-display: "Bagel Fat One", "Bowlby One SC", "Impact", system-ui, sans-serif;
+  --font-display: "Pirata One", "Palatino Linotype", serif;
+  --font-ui:      "Barlow Condensed", "Impact", "Arial Narrow", sans-serif;
   --font-body:    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
@@ -72,8 +73,8 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
   font-family: var(--font-display);
   font-weight: 400;
   font-size: clamp(64px, 13vw, 184px);
-  line-height: 0.87;
-  letter-spacing: -0.03em;
+  line-height: 0.9;
+  letter-spacing: 0.01em;
   text-transform: uppercase;
 }
 
@@ -81,8 +82,8 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
   font-family: var(--font-display);
   font-weight: 400;
   font-size: clamp(44px, 7vw, 100px);
-  line-height: 0.91;
-  letter-spacing: -0.02em;
+  line-height: 0.93;
+  letter-spacing: 0.01em;
   text-transform: uppercase;
 }
 
@@ -135,8 +136,8 @@ header {
 .brand { display: flex; align-items: center; gap: 10px; }
 .brand img { width: 26px; height: 26px; }
 .brand-name {
-  font-family: var(--font-display);
-  font-size: 17px; letter-spacing: 0.05em; text-transform: lowercase;
+  font-family: var(--font-ui);
+  font-size: 15px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
 }
 
 .nav-links { list-style: none; display: flex; gap: 40px; }
@@ -240,8 +241,8 @@ header {
 .card:hover .card-img img { transform: scale(1.04); filter: grayscale(0%); }
 .card-meta { padding: 20px 24px 28px; border-top: 1px solid var(--line); }
 .card-meta h3 {
-  font-family: var(--font-display); font-weight: 400;
-  font-size: 21px; text-transform: uppercase; margin-bottom: 6px;
+  font-family: var(--font-ui); font-weight: 800;
+  font-size: 22px; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 6px;
 }
 .card-meta p { color: var(--muted); font-size: 13px; line-height: 1.6; }
 
@@ -269,8 +270,8 @@ header {
 }
 .pillar { padding: 40px 32px; background: var(--bg); }
 .pillar h3 {
-  font-family: var(--font-display); font-weight: 400;
-  font-size: 28px; text-transform: uppercase; margin-bottom: 12px;
+  font-family: var(--font-ui); font-weight: 800;
+  font-size: 28px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px;
 }
 .pillar p { color: var(--muted); font-size: 14px; line-height: 1.7; }
 
@@ -345,15 +346,15 @@ header {
 .placeholder-mark span { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
 .product-meta { padding: 24px 28px 32px; border-top: 1px solid var(--line); }
 .product-meta h3 {
-  font-family: var(--font-display); font-weight: 400;
-  font-size: 22px; text-transform: uppercase; margin-bottom: 6px;
+  font-family: var(--font-ui); font-weight: 800;
+  font-size: 23px; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 6px;
 }
 .product-meta p { color: var(--muted); font-size: 13px; margin-bottom: 24px; line-height: 1.65; }
 .product-foot {
   display: flex; align-items: center; justify-content: space-between;
   padding-top: 16px; border-top: 1px solid var(--line);
 }
-.price { font-family: var(--font-display); font-size: 20px; }
+.price { font-family: var(--font-ui); font-weight: 800; font-size: 20px; letter-spacing: 0.04em; }
 .cta-arrow {
   font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
   color: var(--faint); transition: color .2s;
@@ -373,13 +374,13 @@ header {
 .steps li { padding: 40px 32px; background: var(--bg); }
 .step-num {
   display: block;
-  font-family: var(--font-display);
+  font-family: var(--font-ui); font-weight: 800;
   font-size: 52px; color: var(--faint);
-  margin-bottom: 20px; line-height: 1;
+  margin-bottom: 20px; line-height: 1; letter-spacing: 0.04em;
 }
 .steps h3 {
-  font-family: var(--font-display); font-weight: 400;
-  font-size: 19px; text-transform: uppercase; margin-bottom: 10px;
+  font-family: var(--font-ui); font-weight: 800;
+  font-size: 19px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px;
 }
 .steps p { color: var(--muted); font-size: 14px; line-height: 1.7; }
 .how-cta { display: flex; gap: 12px; flex-wrap: wrap; }
@@ -417,8 +418,8 @@ header {
 .footer-inner { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; align-items: start; }
 .footer-brand img { width: 22px; height: 22px; margin-bottom: 12px; opacity: 0.4; }
 .footer-tag {
-  font-family: var(--font-display); font-size: 13px;
-  text-transform: lowercase; letter-spacing: 0.04em; color: var(--muted);
+  font-family: var(--font-ui); font-size: 13px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.18em; color: var(--muted);
 }
 .footer-links, .socials { list-style: none; display: flex; flex-direction: column; gap: 10px; }
 .footer-links a, .socials a {

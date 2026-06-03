@@ -72,6 +72,22 @@
     });
   });
 
+  // Graceful image fallback — mark parent when an image fails so CSS can show a branded placeholder
+  document.querySelectorAll('img').forEach(function (img) {
+    var handle = function () {
+      if (img.dataset.fallback === '1') return;
+      img.dataset.fallback = '1';
+      var parent = img.parentNode;
+      if (parent) parent.classList.add('img-missing');
+      img.style.visibility = 'hidden';
+    };
+    if (img.complete && img.naturalWidth === 0) {
+      handle();
+    } else {
+      img.addEventListener('error', handle);
+    }
+  });
+
   // Scroll reveal — CSS class-based so hover transforms are not overridden
   if ('IntersectionObserver' in window) {
     var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

@@ -412,6 +412,54 @@ header {
 .brand { transition: opacity .2s; }
 .brand:hover { opacity: 0.75; }
 
+/* ── Focus ring (accessibility) ─────────────────────────── */
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ── Image fallback placeholder ─────────────────────────── */
+.img-missing {
+  position: relative;
+  background:
+    radial-gradient(ellipse at 30% 30%, rgba(255,59,47,0.10) 0%, transparent 60%),
+    linear-gradient(135deg, #0c0c0c 0%, #050505 100%);
+}
+.img-missing::before,
+.img-missing::after {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-display);
+  font-weight: 400;
+  color: var(--faint);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  pointer-events: none;
+}
+.img-missing::before {
+  content: "A";
+  top: 38%;
+  font-size: clamp(48px, 8vw, 96px);
+  line-height: 1;
+  color: rgba(255,255,255,0.06);
+}
+.img-missing::after {
+  content: "natural athlete";
+  bottom: 18%;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--faint);
+}
+.hero-bg.img-missing::before,
+.hero-bg.img-missing::after { display: none; }
+.footer-brand.img-missing,
+.brand.img-missing { background: none; }
+.footer-brand.img-missing::before,
+.footer-brand.img-missing::after,
+.brand.img-missing::before,
+.brand.img-missing::after { display: none; }
+
 /* ── Responsive ─────────────────────────────────────────── */
 @media (max-width: 960px) {
   .nav-links { display: none; }

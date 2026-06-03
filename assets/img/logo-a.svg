@@ -3,23 +3,21 @@
   <rect width="400" height="400" fill="#000"/>
 
   <!-- White circle fill -->
-  <circle cx="200" cy="200" r="176" fill="#fff"/>
+  <circle cx="200" cy="200" r="185" fill="#fff"/>
 
-  <!-- A — left leg: apex (200,20) → foot (32,374) -->
-  <line x1="200" y1="20" x2="32" y2="374" stroke="#000" stroke-width="42" stroke-linecap="butt"/>
+  <!-- A — left leg: apex (200,18) → foot (15,386) -->
+  <line x1="200" y1="18" x2="15" y2="386" stroke="#000" stroke-width="52" stroke-linecap="butt"/>
 
-  <!-- A — right leg: apex (200,20) → foot (368,374) -->
-  <line x1="200" y1="20" x2="368" y2="374" stroke="#000" stroke-width="42" stroke-linecap="butt"/>
+  <!-- A — right leg: apex (200,18) → foot (385,386) -->
+  <line x1="200" y1="18" x2="385" y2="386" stroke="#000" stroke-width="52" stroke-linecap="butt"/>
 
-  <!-- A — crossbar (≈55% down the legs)
-       At y=216: t=(216-20)/(374-20)=196/354=0.554
-       Left x = 200+(32-200)×0.554 = 200-93.1 ≈ 107
-       Right x = 200+(368-200)×0.554 = 200+93.1 ≈ 293 -->
-  <line x1="107" y1="216" x2="293" y2="216" stroke="#000" stroke-width="36" stroke-linecap="butt"/>
+  <!-- A — crossbar at ~46% down the legs -->
+  <line x1="88" y1="186" x2="312" y2="186" stroke="#000" stroke-width="46" stroke-linecap="butt"/>
 
-  <!-- Small arrow/bolt element in lower-left quadrant of the A -->
-  <polygon points="80,296 118,296 90,374 52,374" fill="#000"/>
+  <!-- Large arrow/bolt in lower-left: wide top, diagonal right side,
+       two-pronged bottom with notch creating the downward chevron shape -->
+  <polygon points="34,208 162,208 216,386 132,386 78,292 34,386" fill="#000"/>
 
-  <!-- Circle ring (drawn last so it caps the legs cleanly) -->
-  <circle cx="200" cy="200" r="176" fill="none" stroke="#000" stroke-width="30"/>
+  <!-- Circle ring drawn last to cleanly cap the legs -->
+  <circle cx="200" cy="200" r="185" fill="none" stroke="#000" stroke-width="32"/>
 </svg>

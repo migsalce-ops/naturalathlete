@@ -45,6 +45,33 @@
     });
   }
 
+  // Email signup — show success message on submit
+  document.querySelectorAll('form.signup').forEach(function (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var input = form.querySelector('input[type="email"]');
+      var btn = form.querySelector('button[type="submit"]');
+      var email = (input.value || '').trim();
+      if (!email) return;
+      var orig = btn.textContent;
+      btn.textContent = '...';
+      btn.disabled = true;
+      setTimeout(function () {
+        input.value = '';
+        btn.textContent = orig;
+        btn.disabled = false;
+        var msg = form.parentNode.querySelector('.signup-msg');
+        if (!msg) {
+          msg = document.createElement('p');
+          msg.className = 'signup-msg success';
+          form.insertAdjacentElement('afterend', msg);
+        }
+        msg.textContent = "You're on the list.";
+        msg.className = 'signup-msg success';
+      }, 700);
+    });
+  });
+
   // Scroll reveal — CSS class-based so hover transforms are not overridden
   if ('IntersectionObserver' in window) {
     var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

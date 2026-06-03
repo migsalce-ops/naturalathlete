@@ -1,7 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <g fill="none" stroke="#f0f0f0" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter">
-    <line x1="50" y1="9" x2="17" y2="91"/>
-    <line x1="50" y1="9" x2="83" y2="91"/>
-    <line x1="31" y1="64" x2="69" y2="64"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <!-- Black background -->
+  <rect width="400" height="400" fill="#000"/>
+
+  <!-- White circle fill -->
+  <circle cx="200" cy="200" r="176" fill="#fff"/>
+
+  <!-- A — left leg: apex (200,20) → foot (32,374) -->
+  <line x1="200" y1="20" x2="32" y2="374" stroke="#000" stroke-width="42" stroke-linecap="butt"/>
+
+  <!-- A — right leg: apex (200,20) → foot (368,374) -->
+  <line x1="200" y1="20" x2="368" y2="374" stroke="#000" stroke-width="42" stroke-linecap="butt"/>
+
+  <!-- A — crossbar (≈55% down the legs)
+       At y=216: t=(216-20)/(374-20)=196/354=0.554
+       Left x = 200+(32-200)×0.554 = 200-93.1 ≈ 107
+       Right x = 200+(368-200)×0.554 = 200+93.1 ≈ 293 -->
+  <line x1="107" y1="216" x2="293" y2="216" stroke="#000" stroke-width="36" stroke-linecap="butt"/>
+
+  <!-- Small arrow/bolt element in lower-left quadrant of the A -->
+  <polygon points="80,296 118,296 90,374 52,374" fill="#000"/>
+
+  <!-- Circle ring (drawn last so it caps the legs cleanly) -->
+  <circle cx="200" cy="200" r="176" fill="none" stroke="#000" stroke-width="30"/>
 </svg>
